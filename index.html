@@ -1,0 +1,167 @@
+<!-- Pooja Bhagat -->
+<!-- Date : 04/08/2021 -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+  <title>Post Master</title>
+  <style>
+    #responsePre {
+      max-height: 500px;
+    }
+  </style>
+  <link rel="stylesheet" href="/prism.css">
+</head>
+
+<body>
+
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Post Master</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- welcome to Postmaster -->
+  <div class="container">
+    <h1 class="my-3">Welcome to Postmaster</h1>
+
+    <!-- url box-->
+    <div class="mb-3 row">
+      <label for="url" class="col-sm-2 col-form-label ">URL</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="url" placeholder="Enter URL here" required>
+      </div>
+    </div>
+
+    <!-- Request type box -->
+    <fieldset class="row mb-3">
+      <legend class="col-form-label col-sm-2 pt-0">Request Type:</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="requestType" id="get" value="GET" checked>
+          <label class="form-check-label" for="get">
+            GET
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="requestType" id="post" value="POST">
+          <label class="form-check-label" for="post">
+            POST
+          </label>
+        </div>
+      </div>
+
+      <!-- content type box -->
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Content Type:</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ContentType" id="jsonRadio" value="json" checked>
+            <label class="form-check-label" for="json">
+              JSON
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ContentType" id="paramsRadio" value="params">
+            <label class="form-check-label" for="params">
+              Custom Parameters
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+
+      <!-- Parameters box - This will hide on clicking json option in content type -->
+      <div id="parametersBox">
+        <div class="col-sm-10">
+          <div class="row">
+            <label for="Parameters" class="col-sm-2 col-form-label ">Parameters 1</label>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Enter parameter 1 key" id="parametersKey1">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Enter parameter 1 value" id="parametersValue1">
+            </div>
+            <button class="col-sm-2 btn btn-primary" id="addParam">+</button>
+          </div>
+        </div>
+        <div id="params"></div>
+      </div>
+
+      <!--  Json Request box - This will hide on clicking parameters option in content type -->
+      <div class="mb-3 row" id="requestJsonBox">
+        <label for="" class="col-sm-2 col-form-label ">Enter request json: </label>
+        <div class="col-sm-10">
+          <div class="form-floating">
+            <textarea class="form-control" id="requestJsonText" placeholder="Leave a comment here"
+              style="height: 100px"></textarea>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Submit Button -->
+      <div class="col-sm-10 my-3">
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+      </div>
+
+      <!-- Response -->
+      <div class="mb-3 row my-3" id="responseJsonBox">
+        <label for="url" class="col-sm-2 col-form-label ">Response</label>
+        <div class="col-sm-10">
+          <!-- <textarea class="form-control"  id="responseJsonText" style="height: 100px" placeholder="Your response will appear here"></textarea>
+             -->
+          <pre class="language-javascript"
+            id="responsePre"><code id="responsePrism" class="language-javascript">Your response will appear here</code></pre>
+        </div>
+      </div>
+
+  </div>
+
+  <!-- footer -->
+  <footer class="footer mt-auto py-3 bg-dark">
+    <div class="container text-center">
+     <span style="color: white;">Post Master &copy; Designed by Pooja Bhagat</span>
+    </div>
+  </footer>
+
+
+
+
+
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+
+  <script src="/index.js"></script>
+  <script src="/prism.js"></script>
+
+</body>
+
+</html>
